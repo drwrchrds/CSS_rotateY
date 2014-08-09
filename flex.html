@@ -18,6 +18,21 @@
         left: 0;
       }
       
+      .flex-thing div {
+/*        background-color: red;*/
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+      }
+      div { background-color: red; }
+      div + div { background-color: green; }
+      div + div + div { background-color: blue; }
+      div + div + div + div { background-color: purple; }
+      div + div + div + div + div { background-color: pink; }
+      div + div + div + div + div + div { background-color: black; }
+      div + div + div + div + div + div + div { background-color: darkslategray; }
+      div + div + div + div + div + div + div + div { background-color: tomato; }
+      
 /*      body, html {
         padding: 0;
         margin:0;
@@ -25,22 +40,23 @@
         height: 100%;
       }*/
       
-      .flex-thing div {
-        background:red;
-        height: 100px;
-        width: 100px;
-        margin: 10px;
-      }
-      
       .position-me {
         position: absolute;
         right: 0;
         top: 50%;
       }
+      
+      
     </style>
   </head>
   <body>
     <div class='flex-thing'>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
       <div></div>
       <div></div>
       <div></div>
