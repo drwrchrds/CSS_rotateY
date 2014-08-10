@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Memory</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+    <style>
+      #Playfield {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: lightgreen;
+        overflow: scroll;
+/*        perspective: 1000;*/
+      }
+      
+      body, html {
+        margin: 0;
+        padding: 0;
+      }
+      
+      .card {
+        width: 150px;
+        height: 250px;
+/*        float: left;*/
+        position: relative;
+        float: left;
+ /*       border: thick solid white;
+        border-radius: 15px;*/
+
+/*        transition: visibility 1s;*/
+/*        backface-visibility:hidden;*/
+/*        background-color: lightblue;*/
+/*        position: absolute;
+        transform-style: preserve-3d;
+        transition: 2s ease;*/
+      }
+/*      .card:not(.down) {
+        transform: rotateY(180deg);
+      }*/
+      
+      .back:after {
+        position: absolute;
+        color: white;
+        font-size: 100px;
+        top: 26%;
+        left: 34%;
+      }
+      
+      .card.one .back:after { content: '1';}
+      .card.two .back:after { content: '2';}
+      .card.three .back:after { content: '3';}
+      .card.four .back:after { content: '4';}
+      .card.five .back:after { content: '5';}
+      .card.six .back:after { content: '6';}
+      .card.seven .back:after { content: '7';}
+      .card.eight .back:after { content: '8';}
+      .card.nine .back:after { content: '9';}
+      .card.ten .back:after { 
+        content: '10';
+        left: 20%;
+      }
+      .card.eleven .back:after { 
+        content: '11';
+        left: 20%;
+      }
+      .card.twelve .back:after { 
+        content: '12';
+        left: 20%;
+      }
+      
+      .card:not(.down) {
+        -webkit-transform: rotateY(180deg);
+      }
+      
+      .card {
+        transition: 1s;
+      	-webkit-transform-style: preserve-3d;
+      }
+/*      .card > div {
+        height: 100%;
+        width: 100%;
+        backface-visibility:hidden;
+      }
+*/
+      .front, .back {
+        position: absolute;
+        top:0;
+        left: 0;
+        right:0;
+        bottom:0;
+        -webkit-backface-visibility:hidden;
+        border: thick solid white;
+        border-radius: 15px;
+      }
+      
+      .front {
+        background-color: tomato;
+        z-index: 2;
+      }
+      .back {
+        background-color: lightblue;
+        -webkit-transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Playfield">
+      <div class="card down one" data-face="1"><div class='front'></div><div class='back'></div></div>
+      <div class="card down two" data-face="2">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down three" data-face="3">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down four" data-face="4">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down five" data-face="5">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down six" data-face="6">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down seven" data-face="7">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down eight" data-face="8">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down nine" data-face="9">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down ten" data-face="10">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down eleven" data-face="11">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down twelve" data-face="12">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down one" data-face="1">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down two" data-face="2">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down three" data-face="3">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down four" data-face="4">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down five" data-face="5">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down six" data-face="6">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down seven" data-face="7">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down eight" data-face="8">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down nine" data-face="9">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down ten" data-face="10">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down eleven" data-face="11">
+      <div class='front'></div><div class='back'></div></div>
+      <div class="card down twelve" data-face="12">
+      <div class='front'></div><div class='back'></div></div>
+    </div>
+    
+    <script type="text/javascript">
+      $(function() {
+        $('.card').click(function(){
+      	  $(this).toggleClass('down');
+      	});
+      });
+      
+    </script>
+  </body>
+</html>
