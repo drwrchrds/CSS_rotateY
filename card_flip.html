@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- http://www.sitepoint.com/forums/showthread.php?991430-CSS-Challenge-5-Flip-A-Card -->
     <title>Memory</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
@@ -24,22 +25,11 @@
       .card {
         width: 150px;
         height: 250px;
-/*        float: left;*/
         position: relative;
         float: left;
- /*       border: thick solid white;
-        border-radius: 15px;*/
-
-/*        transition: visibility 1s;*/
-/*        backface-visibility:hidden;*/
-/*        background-color: lightblue;*/
-/*        position: absolute;
-        transform-style: preserve-3d;
-        transition: 2s ease;*/
+        margin: 20px;
       }
-/*      .card:not(.down) {
-        transform: rotateY(180deg);
-      }*/
+
       
       .back:after {
         position: absolute;
@@ -60,15 +50,15 @@
       .card.nine .back:after { content: '9';}
       .card.ten .back:after { 
         content: '10';
-        left: 20%;
+        left: 14%;
       }
       .card.eleven .back:after { 
         content: '11';
-        left: 20%;
+        left: 14%;
       }
       .card.twelve .back:after { 
         content: '12';
-        left: 20%;
+        left: 14%;
       }
       
       .card:not(.down) {
@@ -104,63 +94,152 @@
         background-color: lightblue;
         -webkit-transform: rotateY(180deg);
       }
+      
+      .card.matched .back {
+        border: thick solid yellow;
+      }
     </style>
   </head>
   <body>
     <div id="Playfield">
-      <div class="card down one" data-face="1"><div class='front'></div><div class='back'></div></div>
-      <div class="card down two" data-face="2">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down three" data-face="3">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down four" data-face="4">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down five" data-face="5">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down six" data-face="6">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down seven" data-face="7">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down eight" data-face="8">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down nine" data-face="9">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down ten" data-face="10">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down eleven" data-face="11">
-      <div class='front'></div><div class='back'></div></div>
-      <div class="card down twelve" data-face="12">
-      <div class='front'></div><div class='back'></div></div>
       <div class="card down one" data-face="1">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div></div>
       <div class="card down two" data-face="2">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down three" data-face="3">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down four" data-face="4">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down five" data-face="5">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down six" data-face="6">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down seven" data-face="7">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down eight" data-face="8">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down nine" data-face="9">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down ten" data-face="10">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down eleven" data-face="11">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
       <div class="card down twelve" data-face="12">
-      <div class='front'></div><div class='back'></div></div>
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down one" data-face="1">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down two" data-face="2">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down three" data-face="3">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down four" data-face="4">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down five" data-face="5">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down six" data-face="6">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down seven" data-face="7">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down eight" data-face="8">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down nine" data-face="9">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down ten" data-face="10">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down eleven" data-face="11">
+        <div class='front'></div><div class='back'></div>
+      </div>
+      <div class="card down twelve" data-face="12">
+        <div class='front'></div><div class='back'></div>
+      </div>
     </div>
     
+    
+    
     <script type="text/javascript">
+      (function($){
+ 
+          $.fn.shuffle = function() {
+ 
+              var allElems = this.get(),
+                  getRandom = function(max) {
+                      return Math.floor(Math.random() * max);
+                  },
+                  shuffled = $.map(allElems, function(){
+                      var random = getRandom(allElems.length),
+                          randEl = $(allElems[random]).clone(true)[0];
+                      allElems.splice(random, 1);
+                      return randEl;
+                 });
+ 
+              this.each(function(i){
+                  $(this).replaceWith($(shuffled[i]));
+              });
+ 
+              return $(shuffled);
+ 
+          };
+ 
+      })(jQuery);
+    
       $(function() {
+        
+        // shuffle cards
+        $('.card').shuffle();
+        
+        // set up game
         $('.card').click(function(){
-      	  $(this).toggleClass('down');
+          var $target = $(this)
+          if(!$target.hasClass('matched')) {
+        	  $target.toggleClass('down');            
+          }
+          var $shownCards = $('.card:not(.down):not(.matched)');
+          
+          if($shownCards.length === 2) {
+            var $first = $($shownCards.first());
+            var $second = $($shownCards.last());
+            if($first.data('face') === $second.data('face')) {
+              $first.addClass('matched');
+              $second.addClass('matched');  
+              
+              var gameOver = true; 
+              $('.card').each(function(idx, card) {
+                if($(card).hasClass('matched') === false) {
+                  gameOver = false;
+                }
+              });
+              if(gameOver) {
+                alert('you win!')
+                $('.card').off('click');
+              }
+              
+            } else {
+              setTimeout(function() {
+                $shownCards.toggleClass('down')                
+              }, 1000);
+            }
+          }
       	});
       });
       
