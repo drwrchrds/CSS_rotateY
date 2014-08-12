@@ -22,16 +22,66 @@
         background: lightgreen;
       }
       
+      .card.matched .back {
+        border: thick solid yellow;
+      }
+      
+      
+      /********** 3D FLIP CSS FOLLOWS ***********/
       .card {
         width: 150px;
         height: 250px;
         position: relative;
         float: left;
         margin: 20px;
+        /* 
+        'transform: perspective()' gives each card its own vanishing point.
+           
+        Try instead giving the parent element a perspective property:
+        perspective: 700px;
+        
+        ...and see what is different! All the cards now share one vanishing point!
+        */
         transform: perspective(700px);
       }
+      
+      /* removal of the 'down' class on card to initiate flip */
+      .card:not(.down) {
+        -webkit-transform: rotateY(180deg);
+      }
+      
+      .card {
+        transition: 1s ease;
+      	-webkit-transform-style: preserve-3d;
+      }
+
+
+      /* give both .front and .back classes 'backface-visibility:hidden' */
+      .front, .back {
+        position: absolute;
+        top:0;
+        left: 0;
+        right:0;
+        bottom:0;
+        -webkit-backface-visibility:hidden;
+        transision: 1s ease;
+        border: thick solid white;
+        border-radius: 15px;
+      }
+      
+      .front {
+        background-color: tomato;
+        z-index: 2;
+      }
+      .back {
+        background-color: lightblue;
+        -webkit-transform: rotateY(180deg);
+      }
+      
+      /************ END 3D FLIP CSS ************/
 
       
+      /* numbering sans-HTML because why not */
       .back:after {
         position: absolute;
         color: white;
@@ -40,7 +90,6 @@
         left: 34%;
       }
       
-      /* I used :after selectors here to try to avoid changing the HTML */
       .card.one .back:after { content: '1';}
       .card.two .back:after { content: '2';}
       .card.three .back:after { content: '3';}
@@ -61,53 +110,6 @@
       .card.twelve .back:after { 
         content: '12';
         left: 14%;
-      }
-      
-      .card:not(.down) {
-        -webkit-transform: rotateY(180deg);
-      }
-      
-      .card {
-        transition: 1s ease;
-      	-webkit-transform-style: preserve-3d;
-      }
-
-      .front, .back {
-        position: absolute;
-        top:0;
-        left: 0;
-        right:0;
-        bottom:0;
-        -webkit-backface-visibility:hidden;
-        transision: 1s ease;
-        border: thick solid white;
-        border-radius: 15px;
-      }
-      
-      .front {
-/*        background-position: 0px 2px, 4px 35px, 29px 31px, 33px 6px,
-        0px 36px, 4px 2px, 29px 6px, 33px 30px;*/
-        background: 
-        linear-gradient(335deg, #C90032 23px, transparent 23px) 0px 2px,
-        linear-gradient(155deg, #C90032 23px, transparent 23px) 4px 35px,
-        linear-gradient(335deg, #C90032 23px, transparent 23px) 29px 31px,
-        linear-gradient(155deg, #C90032 23px, transparent 23px) 33px 6px,
-
-        linear-gradient(335deg, #C90032 10px, transparent 10px) 0px 36px,
-        linear-gradient(155deg, #C90032 10px, transparent 10px) 4px 2px,
-        linear-gradient(335deg, #C90032 10px, transparent 10px) 29px 6px,
-        linear-gradient(155deg, #C90032 10px, transparent 10px) 33px 30px;
-        background-size: 58px 58px;
-        background-color: tomato;
-        z-index: 2;
-      }
-      .back {
-        background-color: lightblue;
-        -webkit-transform: rotateY(180deg);
-      }
-      
-      .card.matched .back {
-        border: thick solid yellow;
       }
     </style>
   </head>
@@ -237,7 +239,6 @@
         	  $target.removeClass('down');            
           }
           var $shownCards = $('.card:not(.down):not(.matched)');
-          // debugger
           if($shownCards.length === 2) {
             var $first = $($shownCards.first());
             var $second = $($shownCards.last());
